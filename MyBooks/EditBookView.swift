@@ -20,10 +20,9 @@ struct EditBookView: View {
     @State private var dateCompleted = Date.distantPast
     @State private var firstView = true
     
-    
     var body: some View {
         HStack {
-            Text("Hello, World!")
+            Text("Status")
             Picker("Status", selection: $status) {
                 ForEach(Status.allCases) { status in
                     Text(status.descr).tag(status)
@@ -34,23 +33,20 @@ struct EditBookView: View {
         VStack(alignment: .leading) {
             GroupBox {
                 LabeledContent {
-                    DatePicker("", selection: $dateAdded,
-                               displayedComponents: .date)
+                    DatePicker("", selection: $dateAdded, displayedComponents: .date)
                 } label: {
                     Text("Date Added")
                 }
                 if status == .inProgress || status == .completed {
                     LabeledContent {
-                        DatePicker("", selection: $dateStarted,
-                                   in: dateAdded..., displayedComponents: .date)
+                        DatePicker("", selection: $dateStarted, in: dateAdded..., displayedComponents: .date)
                     } label: {
                         Text("Date Started")
                     }
                 }
                 if status == .completed {
                     LabeledContent {
-                        DatePicker("", selection: $dateCompleted,
-                                   in: dateStarted..., displayedComponents: .date)
+                        DatePicker("", selection: $dateCompleted, in: dateStarted..., displayedComponents: .date)
                     } label: {
                         Text("Date Completed")
                     }
@@ -63,13 +59,17 @@ struct EditBookView: View {
                         dateStarted = Date.distantPast
                         dateCompleted = Date.distantPast
                     } else if newValue == .inProgress && oldValue == .completed {
+                        // from completed to inProgress
                         dateCompleted = Date.distantPast
                     } else if newValue == .inProgress && oldValue == .onShelf {
-                        dateCompleted = Date.now
+                        // Book has been started
+                        dateStarted = Date.now
                     } else if newValue == .completed && oldValue == .onShelf {
+                        // Forgot to start book
                         dateCompleted = Date.now
                         dateStarted = dateAdded
                     } else {
+                        // completed
                         dateCompleted = Date.now
                     }
                     firstView = false
@@ -77,7 +77,7 @@ struct EditBookView: View {
             }
             Divider()
             LabeledContent {
-                RatingView(maxRating: 5, currentRating: $rating, width: 30)
+                RatingsView(maxRating: 5, currentRating: $rating, width: 30)
             } label: {
                 Text("Rating")
             }
@@ -104,14 +104,14 @@ struct EditBookView: View {
         .toolbar {
             if changed {
                 Button("Update") {
-                    book.status = book.status
-                    book.rating = book.rating
-                    book.title = book.title
-                    book.author = book.author
-                    book.summary = book.summary
-                    book.dateAdded = book.dateAdded
-                    book.dateStarted = book.dateStarted
-                    book.dateCompleted = book.dateCompleted
+                    book.status = status
+                    book.rating = rating
+                    book.title = title
+                    book.author = author
+                    book.summary = summary
+                    book.dateAdded = dateAdded
+                    book.dateStarted = dateStarted
+                    book.dateCompleted = dateCompleted
                     dismiss()
                 }
                 .buttonStyle(.borderedProminent)

@@ -5,9 +5,8 @@
 //  Created by USER on 3/19/25.
 //
 
-import Foundation
+import SwiftUI
 import SwiftData
-import SwiftUICore
 
 @Model
 class Book {
@@ -51,6 +50,7 @@ class Book {
         }
     }
 }
+
 
 enum Status: Int, Codable, Identifiable, CaseIterable {
     case onShelf, inProgress, completed

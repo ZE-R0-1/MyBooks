@@ -26,7 +26,7 @@ struct NewBookView: View {
                 .buttonStyle(.borderedProminent)
                 .padding(.vertical)
                 .disabled(title.isEmpty || author.isEmpty)
-                .navigationTitle(Text("New Book"))
+                .navigationTitle("New Book")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {

@@ -9,15 +9,14 @@ import SwiftUI
 import SwiftData
 
 struct BookListView: View {
-    @Environment(\.modelContext) private var content
+    @Environment(\.modelContext) private var context
     @Query(sort: \Book.title) private var books: [Book]
     @State private var createNewBook = false
     var body: some View {
         NavigationStack {
             Group {
                 if books.isEmpty {
-                    ContentUnavailableView("Enter your first book",
-                                           systemImage: "book.fill")
+                    ContentUnavailableView("Enter your first book.", systemImage: "book.fill")
                 } else {
                     List {
                         ForEach(books) { book in
@@ -31,8 +30,7 @@ struct BookListView: View {
                                         Text(book.author).foregroundStyle(.secondary)
                                         if let rating = book.rating {
                                             HStack {
-                                                ForEach(0..<rating, id: \.self) {
-                                                    _ in
+                                                ForEach(1..<rating, id: \.self) { _ in
                                                     Image(systemName: "star.fill")
                                                         .imageScale(.small)
                                                         .foregroundStyle(.yellow)
@@ -42,11 +40,12 @@ struct BookListView: View {
                                     }
                                 }
                             }
+                            
                         }
                         .onDelete { indexSet in
                             indexSet.forEach { index in
                                 let book = books[index]
-                                content.delete(book)
+                                context.delete(book)
                             }
                         }
                     }
@@ -57,7 +56,7 @@ struct BookListView: View {
             .toolbar {
                 Button {
                     createNewBook = true
-                } label: {
+                }label: {
                     Image(systemName: "plus.circle.fill")
                         .imageScale(.large)
                 }
