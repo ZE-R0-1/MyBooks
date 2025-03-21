@@ -44,7 +44,7 @@
 			);
 			target = CEDA22B42D8A4B2A0041E510 /* MyBooksTests */;
 		};
-		CEB932212D8D281600FCB8CB /* Exceptions for "MyBooks" folder in "MyBooks" target */ = {
+		CEB932912D8D335200FCB8CB /* Exceptions for "MyBooks" folder in "MyBooks" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -63,10 +63,10 @@
 			path = MyBooksTests;
 			sourceTree = "<group>";
 		};
-		CEDA22A72D8A4B290041E510 /* MyBooks */ = {
+		CEB9327A2D8D335200FCB8CB /* MyBooks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				CEB932212D8D281600FCB8CB /* Exceptions for "MyBooks" folder in "MyBooks" target */,
+				CEB932912D8D335200FCB8CB /* Exceptions for "MyBooks" folder in "MyBooks" target */,
 			);
 			path = MyBooks;
 			sourceTree = "<group>";
@@ -106,7 +106,7 @@
 		CEDA229C2D8A4B290041E510 = {
 			isa = PBXGroup;
 			children = (
-				CEDA22A72D8A4B290041E510 /* MyBooks */,
+				CEB9327A2D8D335200FCB8CB /* MyBooks */,
 				CEB932042D8D02A600FCB8CB /* MyBooksTests */,
 				CEDA22C22D8A4B2A0041E510 /* MyBooksUITests */,
 				CEDA22A62D8A4B290041E510 /* Products */,
@@ -140,7 +140,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				CEB932042D8D02A600FCB8CB /* MyBooksTests */,
-				CEDA22A72D8A4B290041E510 /* MyBooks */,
+				CEB9327A2D8D335200FCB8CB /* MyBooks */,
 			);
 			name = MyBooks;
 			packageProductDependencies = (

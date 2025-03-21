@@ -82,11 +82,11 @@ struct QuotesListView: View {
                 withAnimation {
                     indexSet.forEach { index in
                         let quote = sortedQuotes[index]
-                        book.quotes?.forEach{ bookQuote in
+                        book.quotes?.forEach({ bookQuote in
                             if quote.id == bookQuote.id {
                                 modelContext.delete(quote)
                             }
-                        }
+                        })
                     }
                 }
             }
