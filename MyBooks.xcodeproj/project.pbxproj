@@ -29,15 +29,36 @@
 		CEDA22BF2D8A4B2A0041E510 /* MyBooksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBooksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CEB932062D8D02A600FCB8CB /* Exceptions for "MyBooksTests" folder in "MyBooks" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MyBooksTests.swift,
+			);
+			target = CEDA22A42D8A4B290041E510 /* MyBooks */;
+		};
+		CEB932072D8D02A600FCB8CB /* Exceptions for "MyBooksTests" folder in "MyBooksTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MyBooksTests.swift,
+			);
+			target = CEDA22B42D8A4B2A0041E510 /* MyBooksTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		CEB932042D8D02A600FCB8CB /* MyBooksTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CEB932062D8D02A600FCB8CB /* Exceptions for "MyBooksTests" folder in "MyBooks" target */,
+				CEB932072D8D02A600FCB8CB /* Exceptions for "MyBooksTests" folder in "MyBooksTests" target */,
+			);
+			path = MyBooksTests;
+			sourceTree = "<group>";
+		};
 		CEDA22A72D8A4B290041E510 /* MyBooks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = MyBooks;
-			sourceTree = "<group>";
-		};
-		CEDA22B82D8A4B2A0041E510 /* MyBooksTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MyBooksTests;
 			sourceTree = "<group>";
 		};
 		CEDA22C22D8A4B2A0041E510 /* MyBooksUITests */ = {
@@ -76,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				CEDA22A72D8A4B290041E510 /* MyBooks */,
-				CEDA22B82D8A4B2A0041E510 /* MyBooksTests */,
+				CEB932042D8D02A600FCB8CB /* MyBooksTests */,
 				CEDA22C22D8A4B2A0041E510 /* MyBooksUITests */,
 				CEDA22A62D8A4B290041E510 /* Products */,
 			);
@@ -108,6 +129,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				CEB932042D8D02A600FCB8CB /* MyBooksTests */,
 				CEDA22A72D8A4B290041E510 /* MyBooks */,
 			);
 			name = MyBooks;
@@ -129,9 +151,6 @@
 			);
 			dependencies = (
 				CEDA22B72D8A4B2A0041E510 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				CEDA22B82D8A4B2A0041E510 /* MyBooksTests */,
 			);
 			name = MyBooksTests;
 			packageProductDependencies = (
